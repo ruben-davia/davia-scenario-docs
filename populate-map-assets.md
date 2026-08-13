@@ -6,10 +6,8 @@ description: Match every entity and landmark to an existing 3D key.
 Complete this step after designing the entities and landmarks. The choice of a
 model must not artificially influence their selection.
 
-Read the asset catalog in full:
-https://raw.githubusercontent.com/ruben-davia/davia-scenario-docs/main/map-assets-catalog.md
-
-For every entity and landmark:
+Read [the asset catalog](https://raw.githubusercontent.com/ruben-davia/davia-scenario-docs/main/map-assets-catalog.md) in full. For every
+entity and landmark:
 
 1. choose the existing key whose representation is the best match;
 2. always use an `entity:*` key for an entity;
