@@ -66,6 +66,10 @@ replaces `stat_defs`, and a landmark never accepts `description`. The result is
 the JSON object itself, not a document that describes it; root keys such as
 `title`, `preamble`, or `sections` are invalid.
 
+Hard collection limits: `story_stats` contains at most 30 items, `entities`
+contains between 1 and 100 items, and `landmarks` contains between 0 and 100
+items. These are importer limits, not targets.
+
 The importer distinguishes two outcomes:
 
 - a **blocking error** means that the file cannot be imported safely. This
@@ -236,7 +240,8 @@ For a complete result, provide `name`, `cell_id`, `stat_defs`, and
 `assets.mapAssetKey`, plus `coordinates` for every landmark. Use the actual
 position of a known real place, never the supplied cell `center`, an arbitrary
 point, or the center of its `bbox`. For an invented place, choose one deliberate
-point that fits its validated location. The pair is always
+scenario-consistent point that fits its validated location; historical realism
+is not required. The pair is always
 `[longitude, latitude]`, and the point must belong to its declared `cell_id`.
 
 `coordinates` is required for every landmark. If even one landmark omits it,

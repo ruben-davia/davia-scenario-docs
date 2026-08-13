@@ -11,7 +11,8 @@ equivalent tool. Do not rely on visually reviewing the JSON.
 At a minimum, the program must verify:
 
 1. the JSON serializes, parses, and remains identical;
-2. all six root keys are present and no others exist;
+2. all six root keys are present and no others exist; `story_stats` has at most
+   30 items, `entities` has 1 to 100, and `landmarks` has 0 to 100;
 3. no prohibited technical field has been added;
 4. `start_date` is a valid calendar date and time;
 5. all `stat_id` values are unique and follow their required format;
@@ -30,7 +31,8 @@ At a minimum, the program must verify:
 13. every entity and landmark references an existing source cell;
 14. every landmark has a distinct, deliberate `[longitude, latitude]` pair;
     known real places use their actual geographic positions rather than cell
-    centers or `bbox` centers; every supplied entity or landmark coordinate
+    centers or `bbox` centers, while fictional places use deliberate points
+    consistent with the scenario; every supplied entity or landmark coordinate
     falls within its specified cell when source geometry is available;
 15. entity names are unique, and landmark names are unique within their own
     list;

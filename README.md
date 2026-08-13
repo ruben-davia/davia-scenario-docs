@@ -38,9 +38,11 @@ contain `cell_id`, `slug`, `name`, `kind`, `description`, `bbox`,
 Use all of this as read-only context. In the final file, reference cells only
 with their exact `cell_id`. Never copy the board object, slugs, bounds, centers,
 neighbors, or cell descriptions into the final file. Every landmark must have
-its own `[longitude, latitude]` coordinates. Use the real position of a known
-place, not the cell's `center` or `bbox`. A missing landmark position makes the
-final file invalid and Davia rejects it.
+its own `[longitude, latitude]` coordinates. For a known real place, use its
+actual geographic position. For a fictional place, choose a deliberate point
+consistent with the scenario. This is a positioning requirement, not a demand
+for historical realism. Never use the cell's `center` or `bbox`. A missing
+landmark position makes the final file invalid and Davia rejects it.
 
 ## Non-negotiable output gate
 
@@ -62,6 +64,9 @@ the file, inspect every landmark object. Each one must have exactly this shape:
 coordinates is a blocking error, not a warning. There is no cell-center
 fallback in the final-file contract. Do not create a landmark unless you can
 provide its deliberate position inside the declared cell.
+
+Hard collection limits: at most 30 `story_stats`, between 1 and 100 `entities`,
+and between 0 and 100 `landmarks`.
 
 ## Step 1 — Lead the brainstorming
 
