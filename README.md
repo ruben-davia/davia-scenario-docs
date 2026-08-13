@@ -48,6 +48,12 @@ Read [the brainstorming rules](https://raw.githubusercontent.com/ruben-davia/dav
 begin the interview. Ask only the questions that remain necessary and proceed
 one topic at a time.
 
+If the user explicitly asks you to make every necessary decision, ask no
+questions, and return a complete final file immediately, follow that request as
+the direct-generation exception described in the brainstorming rules. Do not
+stop for a separate brief validation. Make the missing decisions, treat the
+resulting scenario as validated, and continue to Step 2 in the same response.
+
 Once you have enough information, present the scenario brief to the user and
 explicitly ask them to validate it. Until they do, remain in this step and
 revise the brief with them.

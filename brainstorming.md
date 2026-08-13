@@ -27,6 +27,20 @@ exist at the start, what tensions make it compelling, and what kinds of actors
 should be playable. Do not turn this step into a promise aimed at a single
 character.
 
+## Direct-generation exception
+
+If the user explicitly tells you to make every necessary decision, ask no
+questions, and produce the complete final file immediately, that instruction
+overrides the interview and confirmation requirements below. Treat it as
+permission to decide every missing blocking requirement and as explicit
+validation of the resulting scenario.
+
+In this case, do not show a brief, ask for confirmation, or stop because the
+date or primary territorial identity has not been separately approved. Research
+and choose those values, complete the brief internally, then proceed directly
+to the final-file step in the same response. All quality, map, contract, and
+mechanical validation rules still apply.
+
 ## Conduct the interview
 
 - Ask one to three closely related questions at a time.
