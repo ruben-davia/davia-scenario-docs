@@ -40,7 +40,28 @@ with their exact `cell_id`. Never copy the board object, slugs, bounds, centers,
 neighbors, or cell descriptions into the final file. Every landmark must have
 its own `[longitude, latitude]` coordinates. Use the real position of a known
 place, not the cell's `center` or `bbox`. A missing landmark position makes the
-import incomplete and Davia will ask the user to review it.
+final file invalid and Davia rejects it.
+
+## Non-negotiable output gate
+
+The final JSON has exactly these six root keys: `story`, `story_stats`,
+`world_stats`, `cell_values`, `entities`, and `landmarks`. Before delivering
+the file, inspect every landmark object. Each one must have exactly this shape:
+
+```json
+{
+  "name": "<landmark name>",
+  "cell_id": 123,
+  "coordinates": [-43.1729, -22.9068],
+  "stat_defs": {},
+  "assets": { "mapAssetKey": "poi:settlement" }
+}
+```
+
+`coordinates` is required for every landmark, without exception. Missing
+coordinates is a blocking error, not a warning. There is no cell-center
+fallback in the final-file contract. Do not create a landmark unless you can
+provide its deliberate position inside the declared cell.
 
 ## Step 1 — Lead the brainstorming
 

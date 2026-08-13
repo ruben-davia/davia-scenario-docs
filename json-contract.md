@@ -239,10 +239,10 @@ point, or the center of its `bbox`. For an invented place, choose one deliberate
 point that fits its validated location. The pair is always
 `[longitude, latitude]`, and the point must belong to its declared `cell_id`.
 
-Only `name` and `cell_id` are technically required for recovery. Omitting
-`coordinates` triggers a warning because Davia can only fall back to the center
-of the cell, which is not the landmark's real position. An empty `landmarks`
-array is accepted with a warning.
+`coordinates` is required for every landmark. If even one landmark omits it,
+the file is invalid and Davia rejects the import. This is a blocking error,
+not a warning, and there is no cell-center fallback in the final-file contract.
+An empty `landmarks` array is accepted with a warning.
 
 A landmark description is not allowed: the current product does not consume it.
 
