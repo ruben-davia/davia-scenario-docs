@@ -52,6 +52,7 @@ The six root keys are required and are the only ones allowed:
     {
       "name": "<text>",
       "cell_id": 123,
+      "coordinates": [-43.1729, -22.9068],
       "stat_defs": {},
       "assets": { "mapAssetKey": "poi:settlement" }
     }
@@ -232,10 +233,16 @@ belong to the specified cell.
 ```
 
 For a complete result, provide `name`, `cell_id`, `stat_defs`, and
-`assets.mapAssetKey`. Only `name` and `cell_id` are technically required for an
-individual landmark. Missing optional values use safe defaults and may produce
-a warning. An empty `landmarks` array is accepted with a warning.
-`coordinates` is optional under the same rule as for entities.
+`assets.mapAssetKey`, plus `coordinates` for every landmark. Use the actual
+position of a known real place, never the supplied cell `center`, an arbitrary
+point, or the center of its `bbox`. For an invented place, choose one deliberate
+point that fits its validated location. The pair is always
+`[longitude, latitude]`, and the point must belong to its declared `cell_id`.
+
+Only `name` and `cell_id` are technically required for recovery. Omitting
+`coordinates` triggers a warning because Davia can only fall back to the center
+of the cell, which is not the landmark's real position. An empty `landmarks`
+array is accepted with a warning.
 
 A landmark description is not allowed: the current product does not consume it.
 

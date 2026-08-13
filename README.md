@@ -37,8 +37,10 @@ contain `cell_id`, `slug`, `name`, `kind`, `description`, `bbox`,
 
 Use all of this as read-only context. In the final file, reference cells only
 with their exact `cell_id`. Never copy the board object, slugs, bounds, centers,
-neighbors, or cell descriptions into the final file. When a feature has no
-coordinates, Davia places it at a valid point in its chosen cell.
+neighbors, or cell descriptions into the final file. Every landmark must have
+its own `[longitude, latitude]` coordinates. Use the real position of a known
+place, not the cell's `center` or `bbox`. A missing landmark position makes the
+import incomplete and Davia will ask the user to review it.
 
 ## Step 1 — Lead the brainstorming
 

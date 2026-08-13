@@ -12,7 +12,7 @@ Each entry in `landmarks` contains only:
 
 - `name`;
 - `cell_id`, copied from the existing map;
-- optional `coordinates` in `[longitude, latitude]` format;
+- `coordinates` in `[longitude, latitude]` format;
 - `stat_defs`;
 - `assets.mapAssetKey`, assigned later.
 
@@ -43,6 +43,18 @@ level? If not, keep it as context.
 
 ## Position
 
-Every landmark must belong to an existing cell and lie on the map. Provide
-coordinates when a precise point matters; otherwise, the importer will choose
-a valid point within the cell.
+Every landmark must belong to an existing cell and lie on the map. Always
+provide coordinates. A landmark is a point, so its position is part of the
+landmark rather than optional decoration.
+
+For a known real place, use its actual geographic position. Do not copy the
+cell's `center`, derive a point from its `bbox`, or place several landmarks at
+one generic point merely because they share a cell. For example, Berlin, Kiel,
+and Metz require three different real positions even when the map represents
+all three with the same Germany cell.
+
+For an invented place, choose one deliberate point consistent with the
+validated scenario and its cell. Before delivery, check that every coordinate
+pair is ordered `[longitude, latitude]`, stays within world bounds, and belongs
+to the declared `cell_id`. If a coordinate is missing, the final file is not
+complete: add it before delivery.

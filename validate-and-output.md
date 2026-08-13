@@ -28,8 +28,10 @@ At a minimum, the program must verify:
     source cells, with no duplicates or omissions;
 12. every cell has a resolved value for the primary identity;
 13. every entity and landmark references an existing source cell;
-14. optional coordinates are valid `[longitude, latitude]` pairs and, when
-    source geometry is available, fall within the specified cell;
+14. every landmark has a distinct, deliberate `[longitude, latitude]` pair;
+    known real places use their actual geographic positions rather than cell
+    centers or `bbox` centers; every supplied entity or landmark coordinate
+    falls within its specified cell when source geometry is available;
 15. entity names are unique, and landmark names are unique within their own
     list;
 16. every `mapAssetKey` exists in the catalog and has the correct prefix;
@@ -63,6 +65,8 @@ Also verify the following without adding text to the result:
 - `simulation_rules` limited to scenario-specific constraints;
 - no repetition of Davia's native principles;
 - every entity and landmark within the map;
+- no landmark left at a generic cell center when its real or authored position
+  can be supplied;
 - landmarks appropriate to the map's scale;
 - a nominal, homogeneous primary identity distinct from secondary states.
 
